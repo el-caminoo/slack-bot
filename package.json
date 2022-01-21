@@ -1,0 +1,22 @@
+{
+  "name": "seren",
+  "version": "1.0.0",
+  "description": "SlackBot for data collection",
+  "main": "index.js",
+  "repository": "https://github.com/Qalac/slack-bot.git",
+  "author": "Qalac <officialqalac@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "prisma": "^3.8.1",
+    "dotenv": "^14.2.0"
+  }
+}
