@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     res.send("url is active");
 });
 
-app.post("/", (req, res) => {
+app.post("/post", (req, res) => {
     var {name, age} = req.body;
     res.json({"name": name, "age": age});
 });
