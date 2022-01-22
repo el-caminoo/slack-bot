@@ -12,7 +12,7 @@ const app = new App({
     receiver
 });
 
-receiver.router.use("/", index)
+receiver.router.get("/", index)
 
 app.message(/^ping$/i, async ({ context, say }) => {
     await say("pong")
