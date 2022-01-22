@@ -2,7 +2,7 @@
 var welcomeResponse = async({ command, ack, say}) => {
     try {
         await ack();
-        say("Welcome. How are you doing? \n");
+        say("Welcome. How are you doing?");
         say({
             "type": "home",
             "blocks": [
