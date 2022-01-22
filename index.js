@@ -20,7 +20,7 @@ receiver.router.use(cors());
 app.command("/bot", async({ command, ack, say}) => {
     try {
         await ack();
-        say(`Welcome, How are you doing? \n ${dropdown}`);
+        say(`Welcome, How are you doing? \n ${dropdown[0]}`);
     }
     catch(err) {
         console.log(err);
