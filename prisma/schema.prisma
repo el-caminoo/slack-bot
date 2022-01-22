@@ -3,17 +3,16 @@
 
 
 datasource db {
-  provider = "mongodb"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["mongoDb"]
 }
 
 model responses {
-  id    Int  @id @default(autoincrement()) @map("_id")  @db.ObjectId
+  id    Int  @id @default(autoincrement())
   feeling   String?
   favourite_hobbies   String[]
 }

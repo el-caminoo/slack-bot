@@ -1,9 +1,3 @@
-var { PrismaClient } = require("@prisma/client")
-var { feeling } = require("./hobbySelect");
-
-const prisma = new PrismaClient();
-
-let feeling = feeling;
 let hobbies = []
 
 var thankYou = async({body, ack, say}) => {
@@ -13,14 +7,7 @@ var thankYou = async({body, ack, say}) => {
     result.map(r => {
         hobbies.push(r.text.text);
     });
-
-    prisma.responses.create({
-        data: {
-            feeling: feeling,
-            favourite_hobbies: hobbies
-        }
-    });
-
+    say(`${hobbies[0]} and ${hobbies[1]}`)
     say("Thank you");
 };
 
