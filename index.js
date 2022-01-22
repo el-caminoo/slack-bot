@@ -1,6 +1,7 @@
 var cors = require("cors");
 var { App, ExpressReceiver } = require("@slack/bolt");
 var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
+var { dropdown } = require("./modals");
 // var { index } = require("./routes/routes");
 
 const receiver = new ExpressReceiver({
@@ -20,7 +21,7 @@ app.command("/bot", async({ command, ack, say, respond}) => {
     try {
         await ack();
         respond("Welcome, How are you doing?");
-        say("i dey?");
+        say(dropdown);
     }
     catch(err) {
         console.log(err);
