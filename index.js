@@ -13,8 +13,9 @@ const app = new App({
 
 receiver.router.use(cors());
 
-receiver.router.get("/", (req, res) => {
-    res.send("working")
+receiver.router.post("/slack/events", async (req, res) => {
+    var response = await req.body.challenge;
+    res.send(response);
 });
 
 (async () => {
