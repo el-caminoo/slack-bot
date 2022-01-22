@@ -1,7 +1,8 @@
 var express = require("express");
+var cors = require("cors");
 var { App, ExpressReceiver } = require("@slack/bolt");
 var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
-var { index } = require("./routes/routes");
+
 
 const receiver = new ExpressReceiver({
     signingSecret: SIGNING_SECRET,
@@ -11,6 +12,8 @@ const app = new App({
     token: BOT_TOKEN,
     receiver
 });
+
+receiver.router.use(cors());
 
 receiver.router.get("/", index)
 
