@@ -15,7 +15,9 @@ const app = new App({
 
 receiver.router.use(cors());
 
-receiver.router.get("/", index)
+receiver.router.get("/", (req, res) => {
+    res.send("working")
+});
 
 app.message(/^ping$/i, async ({ context, say }) => {
     await say("pong")
