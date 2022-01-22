@@ -16,10 +16,10 @@ receiver.router.use(cors());
 
 // receiver.router.post("/slack/events", index);
 
-app.command("/bot", async({ command, ack, say}) => {
+app.command("/bot", async({ command, ack, say, respond}) => {
     try {
         await ack();
-        say("Welcome, How are you doing?");
+        respond("Welcome, How are you doing?");
         say("i dey?");
     }
     catch(err) {
