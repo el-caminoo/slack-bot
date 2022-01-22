@@ -22,16 +22,6 @@ app.command("/bot", async({ command, ack, say}) => {
         await ack();
         say(
             {
-                "title": {
-                    "type": "plain_text",
-                    "text": "Add info to feedback",
-                    "emoji": true
-                },
-                "submit": {
-                    "type": "plain_text",
-                    "text": "Save",
-                    "emoji": true
-                },
                 "type": "modal",
                 "blocks": [
                     {
@@ -43,7 +33,17 @@ app.command("/bot", async({ command, ack, say}) => {
                             "type": "plain_text",
                             "text": "Label",
                             "emoji": true
-                        }
+                        },
+                        "title": {
+                            "type": "plain_text",
+                            "text": "Add info to feedback",
+                            "emoji": true
+                        },
+                        "submit": {
+                            "type": "plain_text",
+                            "text": "Save",
+                            "emoji": true
+                        },
                     }
                 ]
             }
