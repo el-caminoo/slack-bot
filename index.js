@@ -2,17 +2,16 @@ var express = require("express");
 var { App, ExpressReceiver } = require("@slack/bolt");
 var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
 
-const receiver = new ExpressReceiver({
-    signingSecret: SIGNING_SECRET
-});
+// const receiver = new ExpressReceiver({
+//     signingSecret: SIGNING_SECRET
+// });
 
 const app = new App({
     token: BOT_TOKEN,
-    receiver
+    signingSecret: SIGNING_SECRET
 });
 
-
-app.command("/bot", async ({command, ack, say}) => {
+app.command("/bot ", async ({command, ack, say}) => {
     try {
         await ack();
         say("This command is active")
