@@ -11,6 +11,7 @@
     "start:dev": "nodemon index.js"
   },
   "dependencies": {
+    "@prisma/client": "^3.8.1",
     "@slack/bolt": "^3.9.0",
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
