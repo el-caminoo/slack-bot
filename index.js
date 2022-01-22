@@ -20,33 +20,16 @@ receiver.router.use(cors());
 app.command("/bot", async({ command, ack, say}) => {
     try {
         await ack();
-        say(
+        say("Welcome. How are you doing? \n",
             {
-                "type": "modal",
-                "blocks": [
-                    {
-                        "type": "input",
-                        "element": {
-                            "type": "plain_text_input"
-                        },
-                        "label": {
-                            "type": "plain_text",
-                            "text": "Label",
-                            "emoji": true
-                        },
-                        "title": {
-                            "type": "plain_text",
-                            "text": "Add info to feedback",
-                            "emoji": true
-                        },
-                        "submit": {
-                            "type": "plain_text",
-                            "text": "Save",
-                            "emoji": true
-                        },
-                    }
-                ]
-            }
+                "type": "button",
+                "text": {
+                  "type": "plain_text",
+                  "text": "Click Me"
+                },
+                "value": "click_me_123",
+                "action_id": "button"
+              }
         );
     }
     catch(err) {
