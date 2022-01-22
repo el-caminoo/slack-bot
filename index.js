@@ -1,36 +1,35 @@
 var express = require("express");
-var bodyParser = require("body-parser");
-var { PORT } = require("./keys");
+var { App, ExpressReceiver } = require("@slack/bolt");
+var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
 
-var app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-
-app.get("/", (req, res) => {
-    res.send("url is active");
+const receiver = new ExpressReceiver({
+    signingSecret: SIGNING_SECRET
 });
 
-// messages url
-
-app.get("/messages", (req, res) => {
-    res.send("Get request for /messages");
+const app = new App({
+    token: BOT_TOKEN,
+    receiver
 });
 
-app.post("/messages", (req, res) => {
-    res.send("POST request for /messages")
+
+app.command("/bot", async ({command, ack, say}) => {
+    try {
+        await ack();
+        say("This command is active")
+    }
+    catch(error) {
+        console.log(error);
+    }
 });
 
-// auth url callback
-
-app.get("/auth/callback", (req, res) => {
-    res.send("Get request for /messages");
-});
-
-app.post("/auth/callback", (req, res) => {
-    res.send("Get request for /messages");
-});
-
-app.listen(PORT, () =>{
+(async () => {
+    await app.start(PORT);
     console.log(`server is up at ${PORT}`);
-});
+})();
+
+// app.router.get
+
+// var app = express();
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: false}));
