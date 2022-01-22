@@ -21,13 +21,32 @@ app.command("/bot", async({ command, ack, say}) => {
     try {
         await ack();
         say(
-                {
-                    type: "section",
-                    text: {
-                        type: "mrkdwn",
-                        text: "we here"
+            {
+                "title": {
+                    "type": "plain_text",
+                    "text": "Add info to feedback",
+                    "emoji": true
+                },
+                "submit": {
+                    "type": "plain_text",
+                    "text": "Save",
+                    "emoji": true
+                },
+                "type": "modal",
+                "blocks": [
+                    {
+                        "type": "input",
+                        "element": {
+                            "type": "plain_text_input"
+                        },
+                        "label": {
+                            "type": "plain_text",
+                            "text": "Label",
+                            "emoji": true
+                        }
                     }
-                } 
+                ]
+            }
         );
     }
     catch(err) {
