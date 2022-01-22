@@ -1,4 +1,4 @@
-const dropdown = [
+[
     {
       "type": "section",
       "block_id": "section678",
@@ -38,8 +38,4 @@ const dropdown = [
         ]
       }
     }
-  ]
-
-  module.exports = {
-      dropdown: dropdown
-  }
+]
