@@ -18,6 +18,16 @@ receiver.router.post("/slack/events", async (req, res) => {
     res.send(response);
 });
 
+app.command("/bot", async({ command, ack, say}) => {
+    try {
+        await ack();
+        say("Command is active");
+    }
+    catch(err) {
+        console.log(err);
+    }
+});
+
 (async () => {
     await app.start(PORT);
     console.log(`server is up at ${PORT}`);
