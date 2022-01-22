@@ -11,9 +11,24 @@ app.get("/", (req, res) => {
     res.send("url is active");
 });
 
-app.post("/post", (req, res) => {
-    var {name, age} = req.body;
-    res.json({"name": name, "age": age});
+// messages url
+
+app.get("/messages", (req, res) => {
+    res.send("Get request for /messages");
+});
+
+app.post("/messages", (req, res) => {
+    res.send("POST request for /messages")
+});
+
+// auth url callback
+
+app.get("/auth/callback", (req, res) => {
+    res.send("Get request for /messages");
+});
+
+app.post("/auth/callback", (req, res) => {
+    res.send("Get request for /messages");
 });
 
 app.listen(PORT, () =>{
