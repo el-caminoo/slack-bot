@@ -20,17 +20,54 @@ receiver.router.use(cors());
 app.command("/bot", async({ command, ack, say}) => {
     try {
         await ack();
-        say("Welcome. How are you doing? \n",
-            {
-                "type": "button",
-                "text": {
-                  "type": "plain_text",
-                  "text": "Click Me"
-                },
-                "value": "click_me_123",
-                "action_id": "button"
-              }
-        );
+        say("Welcome. How are you doing? \n");
+        say({
+            "type": "home",
+            "blocks": [
+                {
+                    "type": "section",
+                    "text": {
+                        "type": "mrkdwn",
+                        "text": "Pick an item from the dropdown list"
+                    },
+                    "accessory": {
+                        "type": "static_select",
+                        "placeholder": {
+                            "type": "plain_text",
+                            "text": "Select an item",
+                            "emoji": true
+                        },
+                        "options": [
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "*this is plain_text text*",
+                                    "emoji": true
+                                },
+                                "value": "value-0"
+                            },
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "*this is plain_text text*",
+                                    "emoji": true
+                                },
+                                "value": "value-1"
+                            },
+                            {
+                                "text": {
+                                    "type": "plain_text",
+                                    "text": "*this is plain_text text*",
+                                    "emoji": true
+                                },
+                                "value": "value-2"
+                            }
+                        ],
+                        "action_id": "static_select-action"
+                    }
+                }
+            ]
+        })
     }
     catch(err) {
         console.log(err);
