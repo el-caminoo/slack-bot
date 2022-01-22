@@ -1,14 +1,21 @@
 var express = require("express");
 var { App, ExpressReceiver } = require("@slack/bolt");
 var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
+var { index } = require("./routes/routes");
 
-// const receiver = new ExpressReceiver({
-//     signingSecret: SIGNING_SECRET
-// });
+const receiver = new ExpressReceiver({
+    signingSecret: SIGNING_SECRET,
+});
 
 const app = new App({
     token: BOT_TOKEN,
-    signingSecret: SIGNING_SECRET
+    receiver
+});
+
+receiver.router.use("/", index)
+
+app.message(/^ping$/i, async ({ context, say }) => {
+    await say("pong")
 });
 
 app.command("/bot ", async ({command, ack, say}) => {
@@ -25,10 +32,3 @@ app.command("/bot ", async ({command, ack, say}) => {
     await app.start(PORT);
     console.log(`server is up at ${PORT}`);
 })();
-
-// app.router.get
-
-// var app = express();
-
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}));
