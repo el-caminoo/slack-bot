@@ -20,16 +20,14 @@ receiver.router.use(cors());
 app.command("/bot", async({ command, ack, say}) => {
     try {
         await ack();
-        say("Welcome, How are you doing? \n"
-            [
+        say(
                 {
                     type: "section",
                     text: {
                         type: "mrkdwn",
                         text: "we here"
                     }
-                }
-            ]  
+                } 
         );
     }
     catch(err) {
