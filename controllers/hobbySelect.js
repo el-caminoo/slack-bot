@@ -1,5 +1,9 @@
-var hobbySelect = async({ack, say}) => {
-    await ack();
+var { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
+
+var hobbySelect = async({body, ack, say}) => {
+    await ack(); 
     say({
         "type": "home",
         "blocks": [
@@ -63,11 +67,18 @@ var hobbySelect = async({ack, say}) => {
             }
         ]
     })
+
+    let userID = body.user.id
+    let feeling = body.actions[0].selected_option.text.text
+
+    await prisma.response.create({
+        data: {
+            id: userID,
+            feeling: feeling
+        }
+    })
 };
 
 module.exports = {
     hobbySelect: hobbySelect,
 }
-
-
-// let feeling = body.actions[0].selected_option.text.text
