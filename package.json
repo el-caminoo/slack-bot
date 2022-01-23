@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "start:dev": "nodemon index.js",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@prisma/client": "^3.8.1",
@@ -22,7 +22,8 @@
   "devDependencies": {
     "jest": "^27.4.7",
     "nodemon": "^2.0.15",
-    "prisma": "^3.8.1"
+    "prisma": "^3.8.1",
+    "supertest": "^6.2.2"
   },
   "engines": {
     "node": "16.3.0"

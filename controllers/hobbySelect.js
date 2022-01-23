@@ -77,6 +77,9 @@ var hobbySelect = async({body, ack, say}) => {
             feeling: feeling
         }
     })
+    .catch(err => {
+        console.log(err);
+    });
 };
 
 module.exports = {

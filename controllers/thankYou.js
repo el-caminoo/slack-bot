@@ -18,6 +18,9 @@ var thankYou = async({body, ack, say}) => {
         where: {id: userID},
         data: {favourite_hobbies: hobbies}
     })
+    .catch(err => {
+        console.log(err);
+    });
 };
 
 module.exports = {

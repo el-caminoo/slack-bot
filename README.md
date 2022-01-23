@@ -1,6 +1,6 @@
 # Seren Slack Chatbot
 
-The aim off this project is to build a chatbot hosted on slack that's able to collect and record information from members of a channel.
+The aim of this project is to build a chatbot hosted on slack that's able to collect and record information from members of a channel.
 
 ## Installation
 
@@ -27,3 +27,5 @@ Run the command below to carry out unit testing on some functions needed to make
 ```bash
 yarn run test
 ```
+
+The API endpoint for retrieving all collected info is at [This is the link to API endpoint] (https://seren-slackbot.herokuapp.com/response/get)
