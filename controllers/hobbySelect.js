@@ -1,4 +1,4 @@
-var hobbySelect = async({body, ack, say}) => {
+var hobbySelect = async({ack, say}) => {
     await ack();
     say({
         "type": "home",
@@ -67,7 +67,6 @@ var hobbySelect = async({body, ack, say}) => {
 
 module.exports = {
     hobbySelect: hobbySelect,
-    feeling: feeling
 }
 
 
