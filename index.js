@@ -4,6 +4,7 @@ var { PORT, SIGNING_SECRET, BOT_TOKEN } = require("./keys");
 var { welcomeResponse } = require("./controllers/welcomeResponse");
 var { hobbySelect } = require("./controllers/hobbySelect");
 var { thankYou } = require("./controllers/thankYou");
+var { getData } = require("./api/index");
 
 const receiver = new ExpressReceiver({
     signingSecret: SIGNING_SECRET,
@@ -16,7 +17,7 @@ const app = new App({
 
 receiver.router.use(cors());
 
-// receiver.router.post("/slack/events", index);
+receiver.router.get("/response/get", getData);
 
 app.command("/bot", welcomeResponse);
 app.action("static_select-action", hobbySelect);
