@@ -4,8 +4,8 @@ const prisma = new PrismaClient()
 
 
 var getData = async (req, res) => {
-    let response = await prisma.responses.findMany();
-    res.send(response);
+    // let response = await prisma.responses.findMany();
+    res.send('response');
 }
 
 module.exports = {

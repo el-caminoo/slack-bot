@@ -1,8 +1,5 @@
-var feeling = ""
-
 var hobbySelect = async({body, ack, say}) => {
     await ack();
-    feeling = body.actions[0].selected_option.text.text
     say({
         "type": "home",
         "blocks": [
@@ -72,3 +69,6 @@ module.exports = {
     hobbySelect: hobbySelect,
     feeling: feeling
 }
+
+
+// let feeling = body.actions[0].selected_option.text.text
